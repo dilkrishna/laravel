@@ -15,20 +15,27 @@ Route::get('/', 'AdminController@index')
 ->name('home');
 
 
-Route::post('/submit','SubmitController@index'
-)->name('submit');
+Route::post('/submit',[
+        'uses' => 'AdminController@submit',
+        'as'  => 'submit'
+        ]);
 
-Route::get('/cricket/{name?}', function ($name = null) {
-    return view('actions.cricket',['name' => $name]);
-})->name('cricket');
+Route::get('/{do?}',[
+    'uses' => 'AdminController@getAction',
+    'as'  => 'getaction'
+]);
 
-Route::get('/football', function () {
-    return view('actions.football');
-})->name('football');
-
-Route::get('/vollyball', function () {
-    return view('actions.volleyball');
-})->name('volleyball');
+//Route::get('/cricket/{name?}', function ($name = null) {
+//    return view('actions.cricket',['name' => $name]);
+//})->name('cricket');
+//
+//Route::get('/football', function () {
+//    return view('actions.football');
+//})->name('football');
+//
+//Route::get('/vollyball', function () {
+//    return view('actions.volleyball');
+//})->name('volleyball');
 
 //Route::get('/{name}', function ($name) {
 //    return view('actions.hello',['name'=>$name]);

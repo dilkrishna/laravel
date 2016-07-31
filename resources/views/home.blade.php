@@ -1,11 +1,11 @@
 @extends('layouts.master')
 @section('content')
-<p>Welcome to laravel
-    {{--<a href="{{ route('hello') }}"> RAM</a><br>--}}
-    <a href="{{ route('volleyball') }}"> Volleyball</a>
-    <a href="{{ route('football') }}"> Football</a>
-    <a href="{{ route('cricket') }}"> Cricket</a></p>
-
+    <p>Welcome to laravel
+        {{--<a href="{{ route('hello') }}"> RAM</a><br>--}}
+        <a href="{{ route('getaction',['do'=>'volleyball'] ) }}"> Volleyball</a>
+        <a href="{{ route('getaction', ['do' => 'football']) }}"> Football</a>
+        <a href="{{ route('getaction'),['do' => 'cricket'] }}"> Cricket</a>
+    </p>
 <div class="container">
     {{ Form::open(array('route' => 'submit', 'method'=> 'post')) }}
         <div>
