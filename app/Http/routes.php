@@ -10,20 +10,22 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::group(['middleware'=>'web'], function(){
+    Route::get('/', 'AdminController@index')
+    ->name('home');
 
-Route::get('/', 'AdminController@index')
-->name('home');
 
+    Route::post('/hello',[
+            'uses' => 'AdminController@submit',
+            'as'  => 'hello'
+            ]);
 
-Route::post('/submit',[
-        'uses' => 'AdminController@submit',
-        'as'  => 'submit'
-        ]);
+    Route::get('/name/{do?}',[
+        'uses' => 'AdminController@getAction',
+        'as'  => 'getaction'
+    ]);
+});
 
-Route::get('/{do?}',[
-    'uses' => 'AdminController@getAction',
-    'as'  => 'getaction'
-]);
 
 //Route::get('/cricket/{name?}', function ($name = null) {
 //    return view('actions.cricket',['name' => $name]);

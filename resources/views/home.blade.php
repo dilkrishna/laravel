@@ -1,16 +1,29 @@
 @extends('layouts.master')
 @section('content')
-    <p>Welcome to laravel
+    <p xmlns="http://www.w3.org/1999/html">Welcome to laravel
         {{--<a href="{{ route('hello') }}"> RAM</a><br>--}}
         <a href="{{ route('getaction',['do'=>'volleyball'] ) }}"> Volleyball</a>
         <a href="{{ route('getaction', ['do' => 'football']) }}"> Football</a>
-        <a href="{{ route('getaction'),['do' => 'cricket'] }}"> Cricket</a>
+        <a href="{{ route('getaction', ['do' => 'cricket']) }}"> Cricket</a>
+
     </p>
-<div class="container">
-    {{ Form::open(array('route' => 'submit', 'method'=> 'post')) }}
+    <div class="container">
+        <div>
+        @if (count($errors) > 0)
+            <div >
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+
+        @endif
+        </div>
+    {{ Form::open(array('route' => 'hello', 'method'=> 'post')) }}
         <div>
             <label>I  play </label>
-           <?php echo Form::select('action', array('Vollyball' => 'Volleyball', 'Football' => 'Football', 'Cricket'=>'Cricket' )); ?>
+           {{ Form::select('action', array('Vollyball' => 'Volleyball', 'Football' => 'Football', 'Cricket'=>'Cricket' )) }}
 
                 {{--<select  id="select-action" name="action">--}}
                     {{--<option>volleyball</option>--}}
@@ -19,7 +32,7 @@
                 {{--</select>--}}
             <label> with </label>
                 {{--<input type="text" name="name"/>--}}
-            <?php echo Form::text('name');?>
+            {{ Form::text('name')}}
             <br>
                 <button type="submit" class="btn btn-primary">Submit</button>
         </div>

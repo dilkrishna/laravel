@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -19,20 +20,23 @@ class AdminController extends Controller
 
     public function submit(Request $request)
     {
-        if((isset($request['action'])) && ($request['name'])){
-            if(strlen($request['name'])> 0 ) {
-                return view('actions.hello', ['action' => $request['action'], 'name' => $request['name']]);
+        $validator =Validator::make($request->all(),[
+        'action' => 'required',
+        'name' => 'required|alpha',
+        ]);
+
+        if($validator->fails()){
+            return view('home', ['errors'=>$validator->errors()]);
             }
-            else{
-                return redirect()->back();
-            }
+        else{
+            return view('actions.hello', ['action' => $request['action'], 'name' => $request['name']]);
         }
-        else
-            return redirect()->back();
+
     }
 
-    public function getAction($do = null)
+
+    public function getAction($name, $do = null)
     {
-        return view('actions.'.$do,['do' => $do]);
+        return view('actions.'.$name.$do,['do' => $do]);
     }
 }

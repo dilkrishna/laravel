@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <head>
         <title>pila</title>
-        <link rel="stylesheet" href="{{ 'css/bootstrap.min.css' }}"
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap.min.css') }}"
     </head>
     <body>
         @include('includes.header')
