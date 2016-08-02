@@ -23,14 +23,7 @@
         <div>
             <label>I  play </label>
            {{ Form::select('action', array('Vollyball' => 'Volleyball', 'Football' => 'Football', 'Cricket'=>'Cricket' )) }}
-
-                {{--<select  id="select-action" name="action">--}}
-                    {{--<option>volleyball</option>--}}
-                    {{--<option>football</option>--}}
-                    {{--<option>cricket</option>--}}
-                {{--</select>--}}
-            <label> with </label>
-                {{--<input type="text" name="name"/>--}}
+                  <label> with </label>
             {{ Form::text('name')}}
             <br>
                 <button type="submit" class="btn btn-primary">Submit</button>

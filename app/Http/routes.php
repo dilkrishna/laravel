@@ -32,24 +32,18 @@ Route::group(['middleware'=>'web'], function(){
        'uses' => 'AdminController@login',
         'as'  => 'admin'
     ]);
+
+    Route::post('/admin1',[
+        'uses' => 'SignupController@index',
+        'as'  => 'sign'
+    ]);
+
+
+    Route::get('/signup',function(){
+        return view('actions.signup');
+    })->name('signup');
 });
 
-
-//Route::get('/cricket/{name?}', function ($name = null) {
-//    return view('actions.cricket',['name' => $name]);
-//})->name('cricket');
-//
-//Route::get('/football', function () {
-//    return view('actions.football');
-//})->name('football');
-//
-//Route::get('/vollyball', function () {
-//    return view('actions.volleyball');
-//})->name('volleyball');
-
-//Route::get('/{name}', function ($name) {
-//    return view('actions.hello',['name'=>$name]);
-//})->name('hello');
 
 
 

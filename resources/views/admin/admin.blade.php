@@ -2,7 +2,7 @@
 
 @section('content')
     <p>
-        <li>Your name is  {{ $name }} </li>
+        <li>YWelcome {{ $name }} </li>
 
     </p>
 @endsection

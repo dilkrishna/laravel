@@ -1,25 +1,30 @@
-@extends('layouts.master')
+@extends('layouts.maste<r')
 @section('content')
     <div class="container">
-    <div class="text-danger">
-        @if (count($errors) > 0)
-            <div >
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-    </div>
-
-        {{ Form::open(array('route'=> 'admin', 'method'=> 'post', 'class'=> 'form-horizontal')) }}
+        <div class="text-danger">
+            @if (count($errors) > 0)
+                <div >
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+        {{ Form::open(array('route'=> 'sign', 'method'=> 'post', 'class'=> 'form-horizontal')) }}
         <fieldset>
-            <legend>Login</legend>
+            <legend>Create Your Profile</legend>
             <div class="form-group">
-                <label for="inputEmail" class="col-lg-2 control-label">Username</label>
+                <label for="username" class="col-lg-2 control-label">Username</label>
                 <div class="col-lg-3">
                     {{ Form::text('name')}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                <div class="col-lg-3">
+                    {{ Form::email('email')}}
                     {{--<input class="form-control" id="inputEmail" placeholder="Email" type="text" name="email" >--}}
                 </div>
             </div>
