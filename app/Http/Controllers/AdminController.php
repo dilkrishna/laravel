@@ -39,7 +39,6 @@ class AdminController extends Controller
         $validator = Validator::make($request->all(),[
             'name' => 'required|alpha',
             'password' => 'required',
-            'email' => 'required',
         ]);
 
         if($validator->fails()){

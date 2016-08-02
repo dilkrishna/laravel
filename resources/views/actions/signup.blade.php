@@ -1,39 +1,37 @@
 @extends('layouts.maste<r')
 @section('content')
     <div class="container">
-        <div class="text-danger">
-            @if (count($errors) > 0)
-                <div >
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-        </div>
         {{ Form::open(array('route'=> 'sign', 'method'=> 'post', 'class'=> 'form-horizontal')) }}
         <fieldset>
             <legend>Create Your Profile</legend>
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                 <label for="username" class="col-lg-2 control-label">Username</label>
                 <div class="col-lg-3">
                     {{ Form::text('name')}}
                 </div>
+                @if ($errors->has('name'))
+                    <strong>{{ $errors->first('name') }}</strong>
+                @endif
             </div>
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                 <label for="inputEmail" class="col-lg-2 control-label">Email</label>
                 <div class="col-lg-3">
                     {{ Form::email('email')}}
                     {{--<input class="form-control" id="inputEmail" placeholder="Email" type="text" name="email" >--}}
                 </div>
+                    @if ($errors->has('email'))
+                       <strong>{{ $errors->first('email') }}</strong>
+                    @endif
             </div>
-            <div class="form-group">
+            <div class="form-group {{ $errors->has('password') ? 'has-error' :'' }}">
                 <label for="inputPassword" class="col-lg-2 control-label">Password</label>
                 <div class="col-lg-3">
                     {{ Form::password('password')}}
-                    {{--<input class="form-control" id="inputPassword" placeholder="Password" type="password" name="password">--}}
                 </div>
+                    @if ($errors->has('password'))
+                        <strong>{{ $errors->first('password') }}</strong>
+                    @endif
+                    {{--<input class="form-control" id="inputPassword" placeholder="Password" type="password" name="password">--}}
             </div>
 
             <div class="form-group">
