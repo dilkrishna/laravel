@@ -9,16 +9,15 @@
     </p>
     <div class="container">
         <div>
-        @if (count($errors) > 0)
-            <div >
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-
-        @endif
+            @if (count($errors) > 0)
+                <div >
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </div>
     {{ Form::open(array('route' => 'hello', 'method'=> 'post')) }}
         <div>

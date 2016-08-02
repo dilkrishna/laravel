@@ -34,6 +34,21 @@ class AdminController extends Controller
 
     }
 
+    public function login(Request $request)
+    {
+        $validator = Validator::make($request->all(),[
+            'name' => 'required|alpha',
+            'password' => 'required',
+        ]);
+
+        if($validator->fails()){
+            return view('actions.login', ['errors'=>$validator->errors()]);
+        }
+        else {
+            return view('admin.admin', ['name' => $request['name']]);
+        }
+    }
+
 
     public function getAction($name, $do = null)
     {

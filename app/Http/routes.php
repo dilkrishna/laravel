@@ -14,7 +14,6 @@ Route::group(['middleware'=>'web'], function(){
     Route::get('/', 'AdminController@index')
     ->name('home');
 
-
     Route::post('/hello',[
             'uses' => 'AdminController@submit',
             'as'  => 'hello'
@@ -23,6 +22,15 @@ Route::group(['middleware'=>'web'], function(){
     Route::get('/name/{do?}',[
         'uses' => 'AdminController@getAction',
         'as'  => 'getaction'
+    ]);
+
+    Route::get('/login',function(){
+      return view('actions.login');
+    })->name('login');
+
+    Route::post('/admin',[
+       'uses' => 'AdminController@login',
+        'as'  => 'admin'
     ]);
 });
 
