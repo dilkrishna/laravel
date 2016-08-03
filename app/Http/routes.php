@@ -42,6 +42,8 @@ Route::group(['middleware'=>'web'], function(){
     Route::get('/signup',function(){
         return view('actions.signup');
     })->name('signup');
+
+    Route::resource('post', 'PostController');
 });
 
 
