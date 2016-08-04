@@ -18,7 +18,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        return 'post';
+        $posts = Post::all();
+
+        return view('posts.index',['posts'=>$posts]);
     }
 
     /**
@@ -41,7 +43,7 @@ class PostController extends Controller
     {
         // validation
         $validator = Validator::make($request->all(),[
-            'title' => 'required|alpha',
+            'title' => 'required',
             'body' => 'required',
         ]);
 
@@ -73,7 +75,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        return view('posts.show');
+        $post = Post::find($id);
+        return view('posts.show',['post'=>$post]);
     }
 
     /**

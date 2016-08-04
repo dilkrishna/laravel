@@ -4,6 +4,8 @@
         <div class="alert alert-success" role="alert">
             <strong> Success:</strong> {!! Session::get('success') !!}
         </div>
+        {{--{{ Session::remove('success') }}--}}
     @endif
-        <p>Welcome to show page</p>
+        <h1>{{ $post->title }}</h1>
+        <p>{{ $post->body }}</p>
 @endsection
