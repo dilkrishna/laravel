@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Validator;
 use App\Post;
+use Session;
 
 class PostController extends Controller
 {
@@ -45,16 +46,20 @@ class PostController extends Controller
         ]);
 
         if($validator->fails()){
+//            return redirect()->route('post.create',['errors'=>$validator->errors()]);
             return view('posts.create', ['errors'=>$validator->errors()]);
         }
         else {
+            // insert into database
             $post = new Post;
             $post->title  =  $request->title;
             $post->body   =  $request->body;
 
             $post->save();
-            // insert into database
-            return redirect()->route('post.show',$post->id);
+
+            Session::set('success', 'The blog is successfully save !');
+
+            return redirect()->route('post.show',[$post->id]);
         }
 
 
@@ -68,7 +73,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        return 'show';
+        return view('posts.show');
     }
 
     /**

@@ -1,8 +1,10 @@
 @extends('layouts.master')
 @section('content')
     <div class="container">
+        <div>
         @if (count($errors) > 0)
-                 <div >
+                 <div class="text-danger" role="alert" >
+                     <strong> Errors:</strong>
                       <ul>
                             @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -15,6 +17,7 @@
         <div class="form-group">
             <label for="title" class="col-lg-2 control-label">Title</label>
             <div class="col-lg-3">
+                {{--{{ Form::text($title, $value = null, $attributes = array('class'=>set_value())) }}--}}
                 {{ Form::text('title')}}
             </div>
         </div>

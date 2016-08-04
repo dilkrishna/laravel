@@ -33,7 +33,7 @@ Route::group(['middleware'=>'web'], function(){
         'as'  => 'admin'
     ]);
 
-    Route::post('/admin1',[
+    Route::post('/home',[
         'uses' => 'SignupController@index',
         'as'  => 'sign'
     ]);
