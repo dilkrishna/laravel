@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
 
 class AdminController extends Controller
 {
@@ -26,7 +27,9 @@ class AdminController extends Controller
         ]);
 
         if($validator->fails()){
-            return view('home', ['errors'=>$validator->errors()]);
+            return view('home', ['errors'=>$validator->errors()])
+                ->withErrors($validator)
+                ->withInput(Input::except('password', 'password'));
             }
         else{
             return view('actions.hello', ['action' => $request['action'], 'name' => $request['name']]);
@@ -42,7 +45,10 @@ class AdminController extends Controller
         ]);
 
         if($validator->fails()){
-            return view('actions.login', ['errors'=>$validator->errors()]);
+            
+            return view('actions.login', ['errors'=>$validator->errors()])
+                ->withErrors($validator)
+                ->withInput(Input::except('password', 'password'));
         }
         else {
             return view('admin.admin', ['name' => $request['name']]);

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Validator;
+use App\User;
 
 class SignupController extends Controller
 {
@@ -21,6 +22,13 @@ class SignupController extends Controller
             return view('actions.signup', ['errors'=>$validator->errors()]);
         }
         else {
+            $user = New User;
+            $user->name         =   $request->name;
+            $user->email        =   $request->email;
+            $user->password     =   $request->password;
+
+            $user->save();
+
             return view('admin.admin', ['name' => $request['name']]);
         }
     }

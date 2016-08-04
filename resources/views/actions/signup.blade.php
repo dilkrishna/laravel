@@ -7,7 +7,8 @@
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                 <label for="username" class="col-lg-2 control-label">Username</label>
                 <div class="col-lg-3">
-                    {{ Form::text('name')}}
+                    <input class="form-control" placeholder="Enter User Name" type="text" name="name" value="{{ Input::get('name') }}" >
+                    {{--{{ Form::text('name')}}--}}
                 </div>
                 @if ($errors->has('name'))
                     <strong>{{ $errors->first('name') }}</strong>
@@ -16,9 +17,9 @@
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                 <label for="inputEmail" class="col-lg-2 control-label">Email</label>
                 <div class="col-lg-3">
-                    {{ Form::email('email')}}
-                    {{--<input class="form-control" id="inputEmail" placeholder="Email" type="text" name="email" >--}}
-                </div>
+                    {{--{{ Form::email('email')}}--}}
+                    <input class="form-control" placeholder="Email" type="text" name="email" value="{{ Input::get('email') }}" >
+            </div>
                     @if ($errors->has('email'))
                        <strong>{{ $errors->first('email') }}</strong>
                     @endif
@@ -26,7 +27,8 @@
             <div class="form-group {{ $errors->has('password') ? 'has-error' :'' }}">
                 <label for="inputPassword" class="col-lg-2 control-label">Password</label>
                 <div class="col-lg-3">
-                    {{ Form::password('password')}}
+                    <input class="form-control" placeholder="Password" type="password" name="password"  >
+                    {{--{{ Form::password('password')}}--}}
                 </div>
                     @if ($errors->has('password'))
                         <strong>{{ $errors->first('password') }}</strong>
