@@ -2,13 +2,13 @@
 @section('content')
     <div class="container">
         <div>
-        @if (count($errors) > 0)
-                 <div class="text-danger" role="alert" >
-                     <strong> Errors:</strong>
-                      <ul>
-                            @foreach ($errors->all() as $error)
+            @if (count($errors) > 0)
+                <div class="text-danger" role="alert" >
+                    <strong> Errors:</strong>
+                    <ul>
+                        @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
-                         @endforeach
+                        @endforeach
                     </ul>
                 </div>
             @endif

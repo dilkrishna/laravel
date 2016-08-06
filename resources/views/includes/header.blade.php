@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{route('home')}}">Sports</a>
+      <a class="navbar-brand" href="{{route('home')}}"class="{{ Request::is('/') ? "active":"" }}">Sports</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -18,8 +18,9 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{ route('signup') }}">Sign Up</a></li>
-        <li><a href="{{ route('login') }}">Login</a></li>
+        <li><a href="{{ route('signup') }}" class="{{ Request::is('/login') ? "active":"" }}">Sign Up</a></li>
+        <li><a href="{{ route('login') }}" class="{{ Request::is('/signup') ? "active":"" }}">Login</a></li>
+        <li><a href="{{ route('post.index') }}" class="{{ Request::is('/post') ? "active":"" }}">Post</a></li>
       </ul>
     </div>
   </div>
