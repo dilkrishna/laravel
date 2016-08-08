@@ -1,4 +1,4 @@
-@extends('layouts.maste<r')
+@extends('layouts.master')
 @section('content')
     <div class="container">
         {{ Form::open(array('route'=> 'sign', 'method'=> 'post', 'class'=> 'form-horizontal')) }}

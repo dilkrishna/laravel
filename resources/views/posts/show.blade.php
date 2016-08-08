@@ -23,7 +23,7 @@
         </div>
         <div class="col-lg-2">
             <a href="{{ route('post.edit',$post->id) }}" class="btn btn-primary  btn-success"> Edit</a>
-            <a href="#" class="btn btn-primary  btn-danger"> Delete</a>
+            <a href="{{ route('post.index') }}" class="btn btn-primary  btn-danger"> Back</a>
         </div>
     </div>
     <br><br>

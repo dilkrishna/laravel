@@ -65,7 +65,7 @@ class PostController extends Controller
 
     public function update(Request $request, $id)
     {
-       die(test);
+       die('update');
        // validation
         $validator = Validator::make($request->all(),[
             'title' => 'required',
@@ -96,6 +96,10 @@ class PostController extends Controller
 
     public function destroy($id)
     {
-        return 'destroy';
+     die('destroy');
+        $post =Post::firdOrfail($id);
+        $post->delete();
+
+        return redirect('post.index');
     }
 }

@@ -30,7 +30,12 @@
         @endif
     </div>
     <div class="row">
-        {!! Form::model($post, [route('post.update',$post->id),'method'=>'PUT'] ) !!}
+        {!! Form::model($post, [route('post.update',$post->id),'method'=>'PATCH'] ) !!}
+        {!! Form::model($post, [
+            'method' => 'PATCH',
+            'route' => ['post.update', $post->id]
+        ]) !!}
+{{--        {{ Form::open(array('method' => 'PUT', 'route' => array('post.update', $post->id))) }}--}}
         <div class="col-lg-8">
             {{ Form::label('title', 'Title',["class"=>"input-lg"]) }}
             {{ Form::text('title', null  ,["class" => "form-control input-lg"]) }}
@@ -56,8 +61,12 @@
         </div>
     </div>
     <div class="col-lg-12 btn-h1-margin">
-            {{ Form::open(array('route'=> ['post.destroy',$post->id], 'method'=> 'DELETE', 'class'=> 'btn btn-primary btn-danger pull-right')) }}
-                {{ Form::submit('Delete', array('class'=>'btn btn-primary btn-danger pull-right'))}}
+{{--            {{ Form::open(array('route'=> ['post.destroy',$post->id], 'method'=> 'DELETE')) }}--}}
+            {!! Form::model($post, [
+                'method' => 'DELETE',
+                'route' => ['post.update', $post->id]
+            ]) !!}
+                {{ Form::submit('Delete', array('class'=>'btn btn-danger pull-right'))}}
             {!! Form::close() !!}
 
         {!! Form::submit('Update', array('class'=>'btn btn-primary btn-sucess pull-right'))!!}

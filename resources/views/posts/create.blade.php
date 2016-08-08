@@ -34,6 +34,7 @@
             <label for="title" class="col-lg-2 control-label"></label>
             <div class="col-lg-3">
                 {{ Form::submit('Create', array('class'=>'btn btn-primary'))}}
+                <a href="{{ route('post.index') }}" class=" btn btn-default">Cancel</a>
             </div>
         </div>
         {{ Form::close() }}
