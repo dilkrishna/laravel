@@ -63,43 +63,38 @@ class PostController extends Controller
         return view('posts.edit',['post'=>$post]);
     }
 
-    public function update(Request $request, $id)
-    {
-       die('update');
-       // validation
+    public function update(Request $request,$id)
+    {   // validation
         $validator = Validator::make($request->all(),[
             'title' => 'required',
             'body' => 'required',
         ]);
-
-        $data = [$id,$validator];
+        $data = [ $id ,['errors'=> $validator->errors()]];
 
         if($validator->fails()){
-//            return redirect()->route('post.create',['errors'=>$validator->errors()]);
-            return view('posts.edit', compact('data'));
+            return redirect()->route('post.edit',compact('data'));
+//            return view('posts.edit', compact('data'));
         }
-        else {
             // insert into database
             $post = Post::find($id);
             $post->title  =  $request->input('title');
             $post->body   =  $request->input('body');
 
             $post->save();
-            // flash data save
 
             Session::flash('success', 'The blog is successfully save !');
-//redirect
-            return redirect()->route('post.show',[$post->id]);
-        }
+
+            return redirect()->route('post.show',[$request->id]);
+
     }
 
 
     public function destroy($id)
     {
-     die('destroy');
-        $post =Post::firdOrfail($id);
+//     die('destroy');
+        $post =Post::findOrfail($id);
         $post->delete();
 
-        return redirect('post.index');
+        return redirect()->route('post.index');
     }
 }

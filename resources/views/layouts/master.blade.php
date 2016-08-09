@@ -2,7 +2,7 @@
 <html lang="en">
     <meta charset="UTF-8">
     <head>
-        <title>pila</title>
+        <title>Blog</title>
         {{--{!! Html::style('public/css/bootstrap.min.js') !!}--}}
         {{--{!! Html::style('public/css/document.js') !!}--}}
 
@@ -16,5 +16,4 @@
             @yield('content')
         </div>
     </body>
-     
 </html>

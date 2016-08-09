@@ -13,6 +13,7 @@
                 </div>
             @endif
         </div>
+        <a href="{{ route('post.index') }}" class=" btn btn-default pull-right">Back</a>
         {{ Form::open(array('route'=> 'post.store', 'method'=> 'post', 'class'=> 'form-horizontal')) }}
         <div class="form-group">
             <label for="title" class="col-lg-2 control-label">Title</label>
@@ -34,7 +35,7 @@
             <label for="title" class="col-lg-2 control-label"></label>
             <div class="col-lg-3">
                 {{ Form::submit('Create', array('class'=>'btn btn-primary'))}}
-                <a href="{{ route('post.index') }}" class=" btn btn-default">Cancel</a>
+                {{ Form::reset('Reset',array('class'=>'btn btn-primary')) }}
             </div>
         </div>
         {{ Form::close() }}

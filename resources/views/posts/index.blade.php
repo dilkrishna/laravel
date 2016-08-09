@@ -28,7 +28,8 @@
                         <td>{{ substr($post->body, 0, 50)}}{{ strlen($post->body)>50 ? "..." :"" }}</td>
                         <td>{{ date( 'M j Y',strtotime($post->created_at)) }}</td>
                         <td>
-                            <a href="{{ route('post.show',[$post->id]) }}" class="btn btn-inverse">view</a>
+                            <a href="{{ route('post.show',[$post->id]) }}" class="btn btn-inverse">View</a>
+                            <a href="{{ route('post.edit',[$post->id]) }}" class="btn btn-inverse">Edit</a>
                         </td>
                     </tr>
                 @endforeach
