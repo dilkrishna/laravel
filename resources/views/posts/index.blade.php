@@ -22,16 +22,15 @@
                 </thead>
                 <tbody>
                 @foreach($posts as $post)
-                    <tr onclick="location.href='{{ route('post.show',[$post->id]) }}'">
+                    <tr class="trhover" onclick="location.href='{{ route('post.show',[$post->id]) }}'">
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
                         <td>{{ substr($post->body, 0, 50)}}{{ strlen($post->body)>50 ? "............" :"" }}</td>
-                        <td>{{ date( 'M j Y, h:i, A',strtotime($post->created_at)) }}</td>
+                        <td>{{ date( 'M j Y, a:h',strtotime($post->created_at)) }}</td>
                         <td>
                             <a href="{{ route('post.show',[$post->id]) }}" class="btn btn-inverse">View</a>
                             <a href="{{ route('post.edit',[$post->id]) }}" class="btn btn-inverse">Edit</a>
                         </td>
-                        </a>
                     </tr>
                 @endforeach
                 </tbody>
