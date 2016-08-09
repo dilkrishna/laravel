@@ -22,7 +22,7 @@
                 </thead>
                 <tbody>
                 @foreach($posts as $post)
-                    <tr>
+                    <tr onclick="location.href='{{ route('post.show',[$post->id]) }}'">
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
                         <td>{{ substr($post->body, 0, 50)}}{{ strlen($post->body)>50 ? "..." :"" }}</td>
@@ -31,6 +31,7 @@
                             <a href="{{ route('post.show',[$post->id]) }}" class="btn btn-inverse">View</a>
                             <a href="{{ route('post.edit',[$post->id]) }}" class="btn btn-inverse">Edit</a>
                         </td>
+                        </a>
                     </tr>
                 @endforeach
                 </tbody>

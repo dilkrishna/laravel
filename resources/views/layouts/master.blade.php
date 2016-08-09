@@ -9,6 +9,7 @@
 
         <link rel="stylesheet" type="text/css" href="{{ URL::to('css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ URL::to('/css/document.css ')}}">
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
     </head>
     <body>
         @include('includes.header')

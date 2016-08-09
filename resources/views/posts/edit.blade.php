@@ -54,7 +54,7 @@
                 {{ Form::textarea('body', null  ,["class" => "form-control"]) }}
             </div>
             {!! Form::submit('Update', array('class'=>'btn btn-primary pull-right btn-h1-margin'))!!}
-                <a href="{{ route('post.show',[$post->id]) }}" class="btn btn-default pull-right btn-h1-margin">Cancel</a>
+                <a href="{{ route('post.index',[$post->id]) }}" class="btn btn-default pull-right btn-h1-margin">Cancel</a>
         {!! Form::close()  !!}
    </div>
 @endsection
