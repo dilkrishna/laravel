@@ -22,8 +22,8 @@
             </div>
         </div>
         <div class="col-lg-2">
-            <a href="{{ route('post.edit',$post->id) }}" class="btn btn-primary  btn-success"> Edit</a>
-            <a href="{{ route('post.index') }}" class="btn btn-primary  btn-danger">Back to Post</a>
+            <a href="{{ route('post.edit',$post->id) }}" class="btn btn-primary btn-sm  btn-success"> Edit</a>
+            <a href="{{ route('post.index') }}" class="btn btn-primary btn-sm btn-danger">Back to Post</a>
         </div>
     </div>
     <br><br>
@@ -32,7 +32,7 @@
             <p class="text-justify">{{ $post->body }}</p>
         </div>
         {!! Form::model($post, ['method' => 'DELETE','route' => ['post.update', $post->id]]) !!}
-        {{ Form::submit('Delete', array('class'=>'btn btn-danger pull-right'))}}
+        {{ Form::submit('Delete', array('class'=>'btn btn-danger btn-sm pull-right'))}}
         {!! Form::close() !!}
     </div>
 @endsection
