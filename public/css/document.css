@@ -2,11 +2,6 @@
  margin-top: 18px;
 }
 
-a:hover {
-    background: #FFDD00;
-    color: #AAAAAA;
-}
-
 tr.hover {
    cursor: pointer;
    /* whatever other hover styles you want */

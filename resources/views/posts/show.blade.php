@@ -23,7 +23,7 @@
         </div>
         <div class="col-lg-2">
             <a href="{{ route('post.edit',$post->id) }}" class="btn btn-primary  btn-success"> Edit</a>
-            <a href="{{ route('post.index') }}" class="btn btn-primary  btn-danger">All Post</a>
+            <a href="{{ route('post.index') }}" class="btn btn-primary  btn-danger">Back to Post</a>
         </div>
     </div>
     <br><br>
